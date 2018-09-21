@@ -10,7 +10,6 @@ $this->title = 'My Yii Application';
 
         <p class="lead">This is a test application made with Yii2 framework.</p>
     </div>
-    <?php \app\adapters\Category::WriteGoodBlock('lol', 'kek', 'none', 2, 'acunamatata') ?>
     <div class="body-content">
 
     </div>

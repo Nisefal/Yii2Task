@@ -87,45 +87,16 @@ class Category extends ActiveRecord   //can't find class
      * "cname" - good's name of category
      * ]
      */
-    public static function GetGoodsOfCategory($name)
-    {
-        $sql_goods = "SELECT image_path as path, description, brand_name, products.name, category_name as cname FROM
-                  (
-                    (
-                      categories INNER JOIN category_products ON categories.category_id=category_products.category_id
-                    )
-                    INNER JOIN products ON products.product_id=category_products.product_id 
-                  )
-                  INNER JOIN images ON products.product_id=images.product_id
-                  WHERE category_name=".$name;
-        return Yii::$app->db->createCommand($sql_goods)->queryAll();
-    }
 
+    /*
+     * returns array
+     * [
+     * "cname" - name of category
+     * ]
+     */
     public static function GetCategoriesNames()
     {
-        $sql_categories = "SELECT category_name FROM category";
+        $sql_categories = "SELECT category_name as cname FROM categories";
         return Yii::$app->db->createCommand($sql_categories)->queryAll();
-    }
-
-    public static function WriteGoodBlock($name, $brand, $description, $product_id, $category)
-    {
-        echo "<div class='good'>";
-        echo "<table>";
-
-        $paths = \app\adapters\Image::GetImagesPathById($product_id);
-        $amount = count($paths);
-        for ($i=1; $i<=$amount; $i++)
-            echo "<col width='200'>";
-            echo "<tr>";
-        for ($i = 0; $i < $amount; $i++) {
-            echo "<td class='col-image'><img width='200' src=\"/images" . $paths[$i]['image_path'] . "\"> </td>";
-        }
-        echo "</tr>";
-        echo "</table>";
-        echo "<p>Name: ".$name."</p><br>";
-        echo "<p>Brand: ".$brand."</p><br>";
-        echo "<br>";
-        echo "<p>Description: ".$description."</p><br>";
-        echo "</div>";
     }
 }
