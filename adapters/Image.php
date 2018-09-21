@@ -18,8 +18,13 @@ class Image extends ActiveRecord   //can't find class
 
     public static function GetImagesPathById($product_id)
     {
-        $sql_amount = "SELECT image_path FROM images WHERE product_id=".$product_id;
-        return Yii::$app->db->createCommand($sql_amount)->queryAll();
+        if ($product_id!=null)
+        {
+            $sql_amount = "SELECT image_path FROM images WHERE product_id=".$product_id;
+            return Yii::$app->db->createCommand($sql_amount)->queryAll();
+        }
+        else
+            return null;
     }
 
     public static function GetImagePathById($product_id)

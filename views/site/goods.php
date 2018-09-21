@@ -30,7 +30,7 @@ $this->title = 'My Yii Application';
                         for($j=0;$j<$a_products;$j++)
                         {
                             $name = $products[$j]->product_info["name"];
-                            $brand = $products[$j]->product_info["brand_name"];
+                            $brand = $products[$j]->product_info["bname"];
                             $descript = $products[$j]->product_info["description"];
                             $id = $products[$j]->product_info["product_id"];
                             $categ = $products[$j]->product_info["cname"];

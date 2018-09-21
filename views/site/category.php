@@ -17,7 +17,7 @@ $this->title = 'My Yii Application';
         <div class="row">
             <div class="col-lg-4">
                 <h2 id="main_item">List of categories with number of items</h2>
-                <?php Category::WriteCategoryTable(); ?>
+                <?php Category::DisplayCategoryTable(); ?>
             </div>
         </div>
     </div>
